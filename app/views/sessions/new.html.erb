@@ -1,0 +1,16 @@
+<div class="login">
+<div class="container">
+<h1>Log In</h1>
+<%= form_for(:session,url:login_path,id:"formlogin") do |f| %>
+<p class="email-login-error"></p>
+<%= f.email_field :email ,id:"emaillogin",placeholder:"Email" %>
+<p class="password-login-error"></p>
+<%= f.password_field :password ,id:"passwordlogin", placeholder:"Password" %>
+<%= f.submit "Login", class:"btn btn-submit" %>
+<%end%>
+
+<%= link_to "Home",'/',class:"btn-edit" %>
+
+</div>
+</div>
+

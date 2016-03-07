@@ -1,0 +1,22 @@
+<div class="signup">
+  <div class="container">
+    
+    <!-- Your form here -->
+    <h1>Sign Up</h1>
+    
+    <%= form_for(@user,id:"formsignup") do |f|%>
+    <p class="first-name-error"></p>
+    <%=f.text_field :first_name ,id:"first",placeholder:"First Name"%>
+    <p class="last-name-error"></p>
+    <%=f.text_field :last_name ,id:"last",placeholder:"Last Name"%>
+    <p class="email-error"></p>
+    <%=f.email_field :email ,id:"email",placeholder:"Email"%>
+    <p class="password-error"></p>
+    <%= f.password_field :password ,id:"password",placeholder:"Password"%>
+    <%=f.submit "Create an Account" , class:"btn btn-submit" %>
+    <%end%>
+
+    <%= link_to "Home",'/',class:"btn-edit" %>
+
+  </div>
+</div>

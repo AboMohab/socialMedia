@@ -1,0 +1,14 @@
+
+<div class="update-article">
+  <div class="container">
+
+    <%= form_for(@article) do |f| %>    
+      <p>Title:</p><%= f.text_field :title %>
+      <%= f.text_field :author,readonly:"true",type:"hidden" %>
+      <%= f.text_area :body %>
+
+      <%= f.submit "Save",data: { confirm: 'Are you sure you want to update ?' }, :class => "btn-submit" %>
+    <% end %>
+
+  </div>
+</div>

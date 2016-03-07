@@ -1,0 +1,8 @@
+<div class="edit" >
+  <%= form_for (@user) do |f| %>
+  <%= f.text_field :first_name,class:"firstt" %><br>
+  <%= f.text_field :last_name,class:"lastt" %><br>
+  <%= f.email_field :email,class:"emall"%><br>
+  <a><%= f.submit "Update" ,data: { confirm: 'Are you sure you want to update ?' },class:"btn btn-update" %></a><br>
+  <%end%>
+</div>
