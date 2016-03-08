@@ -16,7 +16,7 @@
 //= require_tree .
 
 var main = function() {
-  $(this).submit(function() {
+  $('form').submit(function() {
     var firstName = $('#first').val();
     
     if(firstName === "") {
@@ -32,7 +32,7 @@ var main = function() {
 	 return false;
   })
   
-  $(this).submit(function() {
+  $('form').submit(function() {
  
     var lastName = $('#last').val();
         
@@ -49,7 +49,7 @@ var main = function() {
     return false;
   })
   
-  $(this).submit(function() {
+  $('form').submit(function() {
  
     var email = $('#email').val();
         
@@ -63,7 +63,7 @@ var main = function() {
   })
   
   
-   $(this).submit(function() {
+   $('form').submit(function() {
  
     var password = $('#password').val();
         if (password === "") {
@@ -77,9 +77,9 @@ var main = function() {
    
     return false;
   })
-  
+  /*
 
-   $(this).submit(function() {
+   $('#formsignup').submit(function() {
  
     var emailLogin = $('#emaillogin').val();
         if (emailLogin === "") {
@@ -91,7 +91,7 @@ var main = function() {
   })
 
 
-  $(this).submit(function() {
+  $('#formsignup').submit(function() {
  
     var passwordLogin = $('#passwordlogin').val();
         if (passwordLogin === "") {
@@ -102,7 +102,7 @@ var main = function() {
    
     return false;
   })
-
+*/
 
   
 }

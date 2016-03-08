@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'create' => 'articles#create'
   get 'articles/:id/edit' => 'articles#edit'
   patch 'articles/:id' => 'articles#update'
+
   delete 'articles/:id' =>'articles#destroy'
 
   resources :users
@@ -17,11 +18,10 @@ Rails.application.routes.draw do
   get '/edit' => 'users#edit'
   patch '/update' => 'users#update'
 
+  
   resources :sessions
-
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-
   delete '/logout' => 'sessions#destroy'
   
 

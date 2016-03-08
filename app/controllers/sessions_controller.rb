@@ -5,6 +5,9 @@ before_action :require_no_user,only: [:new,:create]
 	def new 
 
 	end
+	
+	def show 
+	end
 
 	def create 
 		@user=User.find_by_email(params[:session][:email]) 
