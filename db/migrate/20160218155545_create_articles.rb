@@ -4,6 +4,7 @@ class CreateArticles < ActiveRecord::Migration
     	t.string :title
     	t.string :author
     	t.string :body
+    	t.string :user_image
     	t.references :user
 
       t.timestamps null: false

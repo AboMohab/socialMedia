@@ -1,0 +1,15 @@
+<div class="article">
+  <div class="container">
+    
+    <h2>Manage Users</h2>
+    <h5> Email      -     User Name </h5>
+    
+    <% @other_users.each do |other_user| %>
+    <%= link_to  user_path(other_user)  do %>
+      <p class="author"><%= other_user.email %> - <%= other_user.first_name %> <%= other_user.last_name%> </p>  
+     <%end%>
+    <%end%>
+
+    		
+    	</div>
+    </div>

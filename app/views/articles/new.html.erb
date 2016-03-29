@@ -8,6 +8,7 @@
       <%= f.text_field :author,value:@user.first_name+" "+@user.last_name ,readonly:"true",type:"hidden"%><br>
       <%= f.text_area :body,placeholder:"Your new Article" %><br>
       <%=f.text_field :user_id,value:@user.id, type:"hidden" %><br>
+      <%= f.hidden_field :user_image,value:@user.image %>
 
       <%= f.submit "Save",class:"btn-submit" %>
     <% end %>

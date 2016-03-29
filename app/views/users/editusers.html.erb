@@ -1,0 +1,28 @@
+<div class="article">
+  <div class="container">
+    
+    <h2>Manage Users</h2>
+    <h5> Email      -     User Name </h5>
+    
+  		<%= form_for (@other_user) do |z| %>
+  		<%=z.label :first_name %> 
+      <%= z.text_field :first_name,class:"firstt" %><br>
+      <%=z.label :last_name %>
+  		<%= z.text_field :last_name ,class:"firstt" %><br>
+      <%=z.label :email %>
+      <%= z.email_field :email,class:"firstt" %><br>
+      <%=z.label :role %>
+      <%= z.text_field :role,class:"firstt" %><br>
+      <%=z.label :image %>
+      <%= z.text_field :image ,class:"firstt" %><br>
+      <%=z.label :admin %>
+      <%= z.text_field :admins,class:"firstt" %><br>
+      
+  		<%= z.submit "update" , name:'other' %>
+  		<%end%>	
+    
+    
+
+    		
+    	</div>
+    </div>

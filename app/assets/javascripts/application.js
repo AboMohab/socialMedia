@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-var main = function() {
+/*var main = function() {
   $('form').submit(function() {
     var firstName = $('#first').val();
     
@@ -105,6 +105,9 @@ var main = function() {
 */
 
   
-}
+//}
 
-$(document).ready(main);
+//$(document).ready(main);
+
+
+

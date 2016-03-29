@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :articles
+resources :articles do
+      resources :comments
+  end 
+
   root 'articles#index'
   get '/index' => 'articles#index'
   get 'articles/id:' => 'articles#show'
@@ -8,20 +11,27 @@ Rails.application.routes.draw do
   post 'create' => 'articles#create'
   get 'articles/:id/edit' => 'articles#edit'
   patch 'articles/:id' => 'articles#update'
-
   delete 'articles/:id' =>'articles#destroy'
 
-  resources :users
+  
+   resources :users 
+
   get '/signup' => 'users#new'
   post '/signup' =>'users#create' 
   get '/profile' => 'users#profile'
   get '/edit' => 'users#edit'
-  patch '/update' => 'users#update'
+  patch '/users/update' => 'users#update'
+  get '/manage' => 'users#manage'
+  get '/show' => 'users#show'
+  get '/editusers/:id'=>'users#editusers', as: :editusers
+  patch 'users/:id/updateusers' => 'users#updateusers'
+  put   'users/:id/updateusers' => 'users#updateusers'
 
-  
   resources :sessions
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+
   delete '/logout' => 'sessions#destroy'
   
 

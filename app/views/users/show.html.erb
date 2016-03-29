@@ -1,0 +1,15 @@
+<div class="article">
+  <div class="container">
+    
+    <h2>Manage Users</h2>
+    <h5> Email      -     User Name </h5>
+    
+  
+    
+     <p class="author"><%= @other_user.email %> - <%= @other_user.first_name %> <%= @other_user.last_name%> </p>  
+     <%= link_to "edit" , editusers_path(@other_user) ,class:"btn-submit" %>
+    
+
+    		
+    	</div>
+    </div>

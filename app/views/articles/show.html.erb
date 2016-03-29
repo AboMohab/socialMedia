@@ -2,14 +2,59 @@
   <div class="container">
     <p class="date"><%= @article.created_at.strftime('%b %d') %></p>
     <h2><%= @article.title %></h2>
+    <%= image_tag @article.user_image,class:"user-image" %>
     <p class="author">by <%= @article.author %></p>
     <p class="article_content"><%= @article.body %></p>
 
-    		<% if current_user && current_user.editor? && @article.author == current_user.first_name+" "+current_user.last_name %>
+    		<% if current_user && current_user.editor? && @article.author == current_user.first_name+" "+current_user.last_name || current_user.admins? %>
     		<%= link_to "Edit",edit_article_path, class:"btn-edit" %> 
     		<%= link_to "Delete Topic",(@article) ,method:"delete",data: { confirm: 'Are you sure you want to delete ?' }, class:"btn-edit" %>
 
     		<%end%>
+            <div class="flash">
+            <% flash.each do |key, value| %>
+     <p style="text-color:red; margin-left:20px;font-size:20px; text-align:center;"><%= content_tag(:div, value, :class => "flash #{key}") %></p>
+  <% end %> </div>
+
+
+            <h3>Comments</h3> 
+
+            <div class="all-comments" >
+            <ul id="comments">  
+            <% @comments.each do |comment| %>  
+            <ul class="each-comment">
+            <%= image_tag comment.user_image,class:"comment-image" %>
+            <p><%= comment.author %>:</p>
+            <div class="comment-body"><li><%= comment.body %></li> </div>
+            <p class="comment-time"><%= comment.created_at.in_time_zone('Riyadh').strftime("%d/%m/%y %H:%M") %></p>
+            <p class="delete-comment">
+                <% if current_user.id == comment.user_id %>
+               <%= link_to 'Delete', [comment.article, comment],
+               :method => :delete,
+               data: { confirm: 'Are you sure?' }
+                %>
+                <%end%>
+            </p>
+            </ul>
+
+            <% end %>  
+            </ul>  
+        </div>
+            <div class="off" >
+
+            <h3>New Comment</h3>  
+            <%= form_for  [@article, @comment],:html => {:class =>"former"} do |f| %> 
+            <ul class="formList" id="mand" >  
+                 <li>  
+                    <%= f.text_area :body, class:"area"   %>  
+                    <%= f.hidden_field :user_id, value:current_user.id %>
+                    <%= f.hidden_field :user_image ,value:current_user.image %>
+                    <%= f.hidden_field :author, value:current_user.first_name+" "+current_user.last_name %>
+                </li>  
+                <li><%= f.submit "Add comment" ,class:"btn-submit" %></li>  
+            </ul>  
+            <% end %>
+        </div>
 
     <!-- Your code here -->
 

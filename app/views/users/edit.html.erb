@@ -1,8 +1,14 @@
 <div class="edit" >
+	<div class="pop">
+	
+
   <%= form_for (@user) do |f| %>
+  <%= image_tag @user.image,class:"img-profile" %><br>
+    
+   <%= f.text_field :image,class:"firstt",placeholder:"choose new profile photo.." ,id:"myprofile" %> <br>
   <%= f.text_field :first_name,class:"firstt" %><br>
   <%= f.text_field :last_name,class:"lastt" %><br>
   <%= f.email_field :email,class:"emall"%><br>
-  <a><%= f.submit "Update" ,data: { confirm: 'Are you sure you want to update ?' },class:"btn btn-update" %></a><br>
+  <a><%= f.submit "Update" , name:'current', data: { confirm: 'Are you sure you want to update ?' },class:"btn btn-update" %></a><br>
   <%end%>
 </div>

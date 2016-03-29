@@ -3,14 +3,17 @@ class ArticlesController < ApplicationController
 	before_action :require_user, only:[:show,:new,:create,:edit,:update,:destroy]
 
 	before_action :require_editor ,only: [:show,:edit,:destroy]
-	
+
+
 
 	def index
-		@articles = Article.all 
+		@articles = Article.all.order('created_at DESC')
 	end 
 
 	def show
 		@article = Article.find(params[:id])
+		@comments = @article.comments.order('created_at DESC')
+		@comment = Comment.new
 	end 
 
 	def new 
@@ -20,11 +23,13 @@ class ArticlesController < ApplicationController
 
 	def create 
 		@article=Article.new(article_params)
-		if @article.save
+		if  @article.save
 			redirect_to @article
+
 		else 
 			redirect_to '/new'
 		end 
+	
 	end 
 
 	def edit
@@ -35,7 +40,8 @@ class ArticlesController < ApplicationController
 		@article=Article.find(params[:id])
 		if @article.update_attributes(article_params)
 			redirect_to @article
-		else redirect_to 'edit_path'
+		else
+		 redirect_to @article
 		end 
 	end 
 
@@ -48,8 +54,11 @@ class ArticlesController < ApplicationController
 
 	private
 	def article_params
-		params.require(:article).permit(:title,:author,:body,:user_id)
+		params.require(:article).permit(:title,:author,:body,:user_image,:user_id)
 	end 
 
 	
 end
+
+	
+

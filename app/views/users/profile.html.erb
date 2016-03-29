@@ -1,6 +1,8 @@
 <div class="profile" >
 	<div class="container">
 		<Form >
+			
+		  <%= image_tag @user.image,class:"img-profile" %><br>
 		  <input class="first" value="<%= @user.first_name%>" readonly><br>
           <input class="last" value="<%= @user.last_name%>" readonly><br>
           <input class="emal" value="<%= @user.email%>" readonly><br>

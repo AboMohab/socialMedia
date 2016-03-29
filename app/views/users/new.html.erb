@@ -13,6 +13,7 @@
     <%=f.email_field :email ,id:"email",placeholder:"Email"%>
     <p class="password-error"></p>
     <%= f.password_field :password ,id:"password",placeholder:"Password"%>
+    <%=f.hidden_field :image,value: 'pic.png' %><br>
     <%=f.submit "Create an Account" , class:"btn btn-submit" %>
     <%end%>
 
